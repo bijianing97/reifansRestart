@@ -1,4 +1,4 @@
-import ethers from "ethers";
+import { ethers } from "ethers";
 import shell from "shelljs";
 
 const provider = new ethers.providers.JsonRpcProvider("http://localhost:11451");

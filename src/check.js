@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ethers_1 = __importDefault(require("ethers"));
+const ethers_1 = require("ethers");
 const shelljs_1 = __importDefault(require("shelljs"));
-const provider = new ethers_1.default.providers.JsonRpcProvider("http://localhost:11451");
+const provider = new ethers_1.ethers.providers.JsonRpcProvider("http://localhost:11451");
 (async () => {
     let blockNumber = await provider.getBlockNumber();
     console.log("Start to record blockNumber is ", blockNumber);
