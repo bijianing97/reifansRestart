@@ -9,16 +9,16 @@ const provider = new ethers.providers.JsonRpcProvider("http://localhost:11451");
 
   while (true) {
     try {
+      await new Promise((resolve) => setTimeout(resolve, 120000));
       const blockNumberNow = await provider.getBlockNumber();
       console.log("Current blockNumber is ", blockNumberNow);
       const blockInterval = blockNumberNow - blockNumber;
       console.log("Block interval is ", blockInterval);
-      if (blockInterval < 100) {
+      if (blockInterval < 10) {
         console.log("Block interval is too short, restart the node");
         shell.exec("pm2 restart rei-fans-node");
       }
       blockNumber = blockNumberNow;
-      await new Promise((resolve) => setTimeout(resolve, 120000));
     } catch (error) {
       console.log(error);
     }
